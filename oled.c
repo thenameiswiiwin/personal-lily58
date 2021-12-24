@@ -6,6 +6,9 @@
 extern uint8_t is_master;
 static uint16_t oled_timer = 0;
 
+//SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
+#ifdef OLED_ENABLE
+
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master())
     return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
